@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Certification } from './Certification';
 import Projects from './Projects';
+import styles from "./Tabs.css"
 
 
 function CustomTabPanel(props) {
@@ -43,24 +44,23 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
+  const tabLabels = ["About", "Certification", "Projects", "More", "Contact"];
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box  sx={{ width: '100%', height:'100%'}}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="About" {...a11yProps(0)} />
-          <Tab label="Certification" {...a11yProps(1)} />
-          <Tab label="Projects" {...a11yProps(2)} />
-          <Tab label="More" {...a11yProps(2)} />
-          <Tab label="Contact" {...a11yProps(2)} />
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" className='projects-tabs'>
+          {tabLabels.map((label, index) => (
+            <Tab key={index} label={label} {...a11yProps(index)} />
+          ))}
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
      
+      <CustomTabPanel value={value} index={0}>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
          <Certification></Certification>
