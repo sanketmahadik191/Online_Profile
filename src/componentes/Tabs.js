@@ -7,6 +7,8 @@ import Box from '@mui/material/Box';
 import { Certification } from './Certification';
 import Projects from './Projects';
 import styles from "./Tabs.css"
+import About from "./About"
+import { Contact } from './Contact';
 
 
 function CustomTabPanel(props) {
@@ -61,12 +63,19 @@ export default function BasicTabs() {
       </Box>
      
       <CustomTabPanel value={value} index={0}>
+        <About></About>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
          <Certification></Certification>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <Projects></Projects>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <></>
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}>
+        <Contact></Contact>
       </CustomTabPanel>
     </Box>
   );
